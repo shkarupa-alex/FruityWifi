@@ -230,7 +230,7 @@ if($service == "wireless"  and $ap_mode == "1") {
 if($service == "wireless" and $ap_mode == "2") { // AIRCRACK (airbase-ng)
     if ($action == "start") {
 
-        $exec = "/usr/bin/sudo /usr/sbin/airmon-ng stop mon0";
+        $exec = "/usr/bin/sudo /usr/sbin/airmon-ng stop wlan0mon";
         //exec("$bin_danger \"" . $exec . "\"" ); //DEPRECATED
         exec_fruitywifi($exec);
     
@@ -250,8 +250,8 @@ if($service == "wireless" and $ap_mode == "2") { // AIRCRACK (airbase-ng)
         //exec("$bin_danger \"" . $exec . "\"" ); //DEPRECATED
         exec_fruitywifi($exec);
         
-        //$exec = "/usr/sbin/airbase-ng -e $hostapd_ssid -c 2 mon0 > /dev/null &"; //-P (all)
-        $exec = "/usr/sbin/airbase-ng -e $hostapd_ssid -c 2 mon0 > /tmp/airbase.log &"; //-P (all)
+        //$exec = "/usr/sbin/airbase-ng -e $hostapd_ssid -c 2 wlan0mon > /dev/null &"; //-P (all)
+        $exec = "/usr/sbin/airbase-ng -e $hostapd_ssid -c 2 wlan0mon > /tmp/airbase.log &"; //-P (all)
         //exec("$bin_danger \"" . $exec . "\"" ); //DEPRECATED
         exec_fruitywifi($exec);
 
@@ -314,7 +314,7 @@ if($service == "wireless" and $ap_mode == "2") { // AIRCRACK (airbase-ng)
         //exec("$bin_danger \"" . $exec . "\"" ); //DEPRECATED
         exec_fruitywifi($exec);
 
-        $exec = "/usr/bin/sudo /usr/sbin/airmon-ng stop mon0";
+        $exec = "/usr/bin/sudo /usr/sbin/airmon-ng stop wlan0mon";
         //exec("$bin_danger \"" . $exec . "\"" ); //DEPRECATED
         exec_fruitywifi($exec);
 

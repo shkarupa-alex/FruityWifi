@@ -108,12 +108,12 @@ if(isset($_POST["iface"]) and $_POST["iface"] == "wifi_supplicant"){
     echo "wifi supplicant:" . $_POST["iface_supplicant"];
 }
 
-if ($_GET["service"] == "mon0") {
+if ($_GET["service"] == "wlan0mon") {
     if ($_GET["action"] == "start") {
-        // START MONITOR MODE (mon0)
+        // START MONITOR MODE (wlan0mon)
         start_monitor_mode($io_in_iface_extra);
     } else {
-        // STOP MONITOR MODE (mon0)
+        // STOP MONITOR MODE (wlan0mon)
         stop_monitor_mode($io_in_iface_extra);
     }
 }
@@ -433,8 +433,8 @@ $ifaces = explode("|", $ifaces);
 
     <form action="scripts/config_iface.php" method="post" style="margin:0px">
     &nbsp;&nbsp;&nbsp;Monitor 
-    <? $iface_mon0 = exec("/sbin/ifconfig |grep mon0"); ?>
-    <select class="input" onchange="this.form.submit()" name="io_in_iface_extra" <? if ($iface_mon0 != "") echo "disabled" ?> >
+    <? $iface_wlan0mon = exec("/sbin/ifconfig |grep wlan0mon"); ?>
+    <select class="input" onchange="this.form.submit()" name="io_in_iface_extra" <? if ($iface_wlan0mon != "") echo "disabled" ?> >
         <option>-</option>
         <?
         for ($i = 0; $i < count($ifaces); $i++) {
@@ -447,10 +447,10 @@ $ifaces = explode("|", $ifaces);
     </select> 
     <img src="img/help-browser.png" title="Use this interface for extra features like Kismet, MDK3, etc..." width=14>
     <?
-        if ($iface_mon0 == "") {
-            echo "<b><a href='page_config_adv.php?service=mon0&action=start'>start</a></b> [<font color='red'>mon0</font>]";
+        if ($iface_wlan0mon == "") {
+            echo "<b><a href='page_config_adv.php?service=wlan0mon&action=start'>start</a></b> [<font color='red'>wlan0mon</font>]";
         } else {
-            echo "<b><a href='page_config_adv.php?service=mon0&action=stop'>stop</a></b>&nbsp; [<font color='lime'>mon0</font>]";
+            echo "<b><a href='page_config_adv.php?service=wlan0mon&action=stop'>stop</a></b>&nbsp; [<font color='lime'>wlan0mon</font>]";
         }
         //echo "(kismet, mdk3, etc)";
     ?>

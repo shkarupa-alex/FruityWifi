@@ -96,9 +96,9 @@ function start_monitor_mode($iface) {
 
     $bin_danger = "/usr/share/fruitywifi/bin/danger";
 
-    // START MONITOR MODE (mon0)
-    $iface_mon0 = exec("/sbin/ifconfig |grep mon0");
-    if ($iface_mon0 == "") {
+    // START MONITOR MODE (wlan0mon)
+    $iface_wlan0mon = exec("/sbin/ifconfig |grep wlan0mon");
+    if ($iface_wlan0mon == "") {
         $exec = "/usr/bin/sudo /usr/sbin/airmon-ng start $iface";
         //exec("$bin_danger \"" . $exec . "\"", $output); //DEPRECATED
 	exec_fruitywifi($exec);
@@ -110,10 +110,10 @@ function stop_monitor_mode($iface) {
 
     $bin_danger = "/usr/share/fruitywifi/bin/danger";
 
-    // START MONITOR MODE (mon0)
-    $iface_mon0 = exec("/sbin/ifconfig |grep mon0");
-    if ($iface_mon0 != "") {
-        $exec = "/usr/bin/sudo /usr/sbin/airmon-ng stop mon0";
+    // START MONITOR MODE (wlan0mon)
+    $iface_wlan0mon = exec("/sbin/ifconfig |grep wlan0mon");
+    if ($iface_wlan0mon != "") {
+        $exec = "/usr/bin/sudo /usr/sbin/airmon-ng stop wlan0mon";
         //exec("$bin_danger \"" . $exec . "\"", $output); //DEPRECATED
 	exec_fruitywifi($exec);
     }
@@ -137,9 +137,9 @@ function start_iface($iface, $ip, $gw) {
 
     $bin_danger = "/usr/share/fruitywifi/bin/danger";
 
-    // START MONITOR MODE (mon0)
-    $iface_mon0 = exec("/sbin/ifconfig |grep mon0");
-    //if ($iface_mon0 == "") {
+    // START MONITOR MODE (wlan0mon)
+    $iface_wlan0mon = exec("/sbin/ifconfig |grep wlan0mon");
+    //if ($iface_wlan0mon == "") {
         $exec = "/usr/bin/sudo /sbin/ifconfig $iface $ip";
         //exec("$bin_danger \"" . $exec . "\"", $output); //DEPRECATED
 	exec_fruitywifi($exec);
@@ -157,9 +157,9 @@ function stop_iface($iface, $ip, $gw) {
 
     $bin_danger = "/usr/share/fruitywifi/bin/danger";
 
-    // START MONITOR MODE (mon0)
-    $iface_mon0 = exec("/sbin/ifconfig |grep mon0");
-    //if ($iface_mon0 != "") {
+    // START MONITOR MODE (wlan0mon)
+    $iface_wlan0mon = exec("/sbin/ifconfig |grep wlan0mon");
+    //if ($iface_wlan0mon != "") {
         $exec = "/usr/bin/sudo /sbin/ifconfig $iface 0.0.0.0";
         //exec("$bin_danger \"" . $exec . "\"", $output); //DEPRECATED
 	exec_fruitywifi($exec);
